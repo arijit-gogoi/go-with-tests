@@ -1,0 +1,5 @@
+#+title: Pointers And Errors
+
+Technically you do not need to change Balance to use a pointer receiver as taking a copy of the balance is fine. However, by convention you should keep your method receiver types the same for consistency.
+
+the syntax for creating a method on a type declaration is the same as it is on a struct.
