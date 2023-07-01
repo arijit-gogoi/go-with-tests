@@ -7,6 +7,7 @@ import (
 type Rectangle struct {
 	Width, Height float64
 }
+
 type Circle struct {
 	Radius float64
 }
