@@ -34,15 +34,26 @@ func assertError(t testing.TB, got, want error) {
 		t.Errorf("got error: %q\nwant: %q", got, want)
 	}
 }
+
 func TestAdd(t *testing.T) {
 	dictionary := Dictionary{}
-	dictionary.Add("test", "this is just a test")
+	word := "test"
+	definition := "this is just a test"
 
+	dictionary.Add(word, definition)
+
+	assertDefinition(t, dictionary, word, definition)
+}
+
+func assertDefinition(t testing.TB, dictionary Dictionary, word, definition string) {
+	t.Helper()
 	want := "this is just a test"
 	got, err := dictionary.Search("test")
+
 	if err != nil {
 		t.Fatal("should find added word:", err)
 	}
-
-	assertStrings(t, got, want)
+	if got != want {
+		t.Errorf("got %q want %q", got, want)
+	}
 }
